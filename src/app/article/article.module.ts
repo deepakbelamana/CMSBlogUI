@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LatestArticlesComponent } from './latest-articles/latest-articles.component';
 import { ArticleDetailsComponentComponent } from './article-details-component/article-details-component.component';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { UserModule } from '../user/user.module';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
   ],
   imports: [
     CommonModule,
-    MatGridListModule
+    MatGridListModule,
+    UserModule
   ],
   exports:[LatestArticlesComponent]
 })

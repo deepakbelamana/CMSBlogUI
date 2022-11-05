@@ -14,6 +14,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSelectModule } from '@angular/material/select';
 import { StaticPagesModule } from './static-pages/static-pages.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [AppComponent, HeaderComponent, FooterComponent, HomeComponent],
   imports: [
@@ -26,6 +28,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatGridListModule,
     MatSelectModule,
     StaticPagesModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

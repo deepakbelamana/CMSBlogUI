@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserServiceService } from '../user/user-service.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  isLogIn : boolean= false
+  constructor(private userService : UserServiceService) { }
 
   ngOnInit(): void {
+    sessionStorage.setItem("loggedIn","false")
   }
 
+  isLogin():boolean
+  {
+    return sessionStorage.getItem("loggedIn")=="true"?true:false;
+  }
+
+  logOut()
+  {
+    sessionStorage.setItem("loggedIn","false")
+  }
 }
