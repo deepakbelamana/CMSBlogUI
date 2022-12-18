@@ -5,6 +5,7 @@ import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
+import { NewArticleComponent } from './new-article/new-article.component';
 
 
 
@@ -12,7 +13,8 @@ import { LoginComponent } from './login/login.component';
   declarations: [
     UserArticlesComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    NewArticleComponent
   ],
   imports: [
     CommonModule,
