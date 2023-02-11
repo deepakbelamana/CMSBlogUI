@@ -8,19 +8,18 @@ export class UserServiceService {
 
   constructor(private http:HttpClient) { }
 
-  baseUrl:string="http://localhost:3000/"
+  baseUrl:string="http://localhost:5000/app/"
   isLogin:boolean=false;
 
   registerUser(data:any)
   {
     console.log(data);
-    return this.http.post(this.baseUrl+"register",data);
+    return this.http.post(this.baseUrl+"saveUser",data,{observe:'response'});
   }
 
   loginUser(data:any)
   {
-    this.isLogin=true;
-    sessionStorage.setItem("loggedIn","true")
-    return this.http.post(this.baseUrl+"login",data);
+   
+    return this.http.post(this.baseUrl+"login",data,{observe:'response'});
   }
 }

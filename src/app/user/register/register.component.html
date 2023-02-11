@@ -1,22 +1,29 @@
 <div class="container">
   <form #registrationForm="ngForm" (ngSubmit)="submitUserRegistrationForm(registrationForm.value)">
     <div class="form-group">
-      <input type="email" class="form-control" placeholder="Enter Email" name="email" ngModel />
+      <input type="email"
+      required class="form-control"
+      placeholder="Enter Email" name="email"
+      ngModel #email="ngModel"
+      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
+
+      <div class="alert alert-info" style="margin-top: 3px;" *ngIf="email.errors?.required">email required</div>
+      <div class="alert alert-danger" style="margin-top: 3px;" *ngIf="email.errors?.pattern">this is not valid email</div>
     </div>
     <div class="form-group">
-      <input type="tel" class="form-control" placeholder="Enter Mobile Number" name="phoneNumber" ngModel />
+      <input type="tel" class="form-control" placeholder="Enter Mobile Number" name="phone" ngModel />
     </div>
     <div class="form-group">
-      <input type="text" class="form-control" placeholder="user name" name="userName" ngModel />
+      <input type="text" class="form-control" placeholder="user name" name="username" ngModel />
     </div>
     <div class="form-group">
-      <input type="password" class="form-control" placeholder="password" name="password" ngModel />
+      <input type="password" class="form-control" placeholder="password" name="password" #password="ngModel" ngModel />
     </div>
     <div class="form-group">
-      <input type="password" class="form-control" placeholder="confirm Password" name="confirmPassword" ngModel />
+      <input type="password" class="form-control" placeholder="confirm Password" name="confirmPassword" #confirmPassword="ngModel" ngModel />
     </div>
     <div class="form-group">
-      <button type="submit" class="btn btn-primary">register</button>
+      <button type="submit" class="btn btn-primary"  [disabled]="!(confirmPassword.value === password.value) || confirmPassword.value==''">register</button>
     </div>
 
   </form>

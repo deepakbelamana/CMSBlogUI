@@ -15,6 +15,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { StaticPagesModule } from './static-pages/static-pages.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, FooterComponent, HomeComponent],
@@ -28,7 +29,8 @@ import { FormsModule } from '@angular/forms';
     MatGridListModule,
     MatSelectModule,
     StaticPagesModule,
-    FormsModule
+    FormsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent],

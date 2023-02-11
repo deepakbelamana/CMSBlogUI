@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {  Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { UserServiceService } from '../user-service.service';
 
 @Component({
@@ -8,7 +10,7 @@ import { UserServiceService } from '../user-service.service';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private userService : UserServiceService) { }
+  constructor(private userService : UserServiceService,private toaster : ToastrService, private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -17,8 +19,18 @@ export class RegisterComponent implements OnInit {
   {
     this.userService.registerUser(registrationForm).subscribe((res)=>
     {
-       console.log(res);
-       sessionStorage.setItem("loggedIn","true")
+       if(res.status==200)
+       {
+          this.toaster.success("registered sucessfully")
+          this.router.navigate(['/login'])
+       }
+       else{
+          this.toaster.warning("user already exists with same email..!")
+       }
+
+    },(error)=>
+    {
+     this.toaster.error("unable to register, try again later")
     })
   }
 }
